@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleClasses.css">
+</head>
+<body>
+ <header class="container">
+        <div class="nomEcole">
+            <div class="conteneurImage">
+                <img src="assets/1779537355182.png" alt="logo CSSJV">
+                <h4>Une histoire d'excellence et d'engagement</h4>
+            </div>
+        </div>
+
+        <div>
+           <button class="hamburger" id="hamburger">☰</button>
+           <nav class="elementEntete">
+                <ul>
+                   <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                   <li><a href="#">À propos</a></li>
+                   <li class="cacheMenu"><a href="classes.html" target="_blank">Classes 
+                   <i class="fa-solid fa-caret-down"></i></a></li>
+                   <li><a href="#">Administration
+                    <i class="fa-solid fa-caret-down"></i></a></li>
+                   <li><a href="enseignants.html" target="_blank">Nos enseignants</a></li>
+                   <li><a href="#">Contact</a></li>
+               </ul>
+           </nav>
+        </div>
+    </header>
+    <main class="page-filieres">
+
+    <div class="tableau">
+      <div class="entete">Niveau</div>
+      <div class="entete">Filière</div>
+      <div class="entete">Effectif</div>
+
+      <div class="cellule">Sixième</div>
+      <div class="cellule">Unique</div>
+      <div class="cellule">60 élèves</div>
+
+      <div class="cellule">Cinquième</div>
+      <div class="cellule">Unique</div>
+      <div class="cellule">55 élèves</div>
+
+      <div class="cellule">Quatrième</div>
+      <div class="cellule">Unique</div>
+      <div class="cellule">50 élèves</div>
+
+      <div class="cellule">Troisième</div>
+      <div class="cellule">Unique</div>
+      <div class="cellule">48 élèves</div>
+
+      <div class="cellule">Seconde</div>
+      <div class="cellule">A / C / D</div>
+      <div class="cellule">90 élèves</div>
+
+      <div class="cellule">Première</div>
+      <div class="cellule">A / C / D</div>
+      <div class="cellule">85 élèves</div>
+
+      <div class="cellule">Terminale</div>
+      <div class="cellule">A / C / D</div>
+      <div class="cellule">80 élèves</div>
+    </div>
+  </main>
+  <script>
+  const bouton = document.getElementById('hamburger');
+  const menu = document.querySelector('.elementEntete');
+  
+  bouton.addEventListener('click', function() {
+    menu.classList.toggle('actif');
+  });
+</script>
+</body>
+</html>

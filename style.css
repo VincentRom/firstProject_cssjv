@@ -1,0 +1,539 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: block;
+    background-color:#D9D0C1;
+    padding: 8px;
+}
+/* Ci-dessous, texte sur image*/
+.conteneurImage{
+    position: relative;
+    display: block;/*texte s'adapte à la taille de l'image*/
+    text-align: center;
+}
+.conteneurImage img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto; /*centrer horizontalement un élément de type bloc (comme une <div>, un <section>, un <h1>, etc.) à l'intérieur de son parent.*/
+    object-fit: cover; /*permet à l'image de remplir tout le conteneur sans la déformer */
+}
+.conteneurImage h4 {
+    position: absolute;
+    bottom: 200px; /*distance du bas*/
+    left: 0; /* Le texte part de la gauche */
+    transform: translateX(-50%); /*centré horizontalement*/
+    color:rgb(175, 175, 10);
+    font-size: 50px;  
+    white-space: nowrap;
+    animation: defiler 20s linear infinite;
+}
+
+@keyframes defiler{  /* ici defiler est le nom de mon animation, je choisis ce que je veux */
+    0%{
+        transform: translateX(-100%); /* commence hors d'écran à gauche */
+        color: red;
+    }
+ /*   25%{
+        color: blue;
+        font-size: 20px;
+    }
+    50%{
+        color: tomato;
+        font-size: 80px;
+    }
+    75%{
+        color: springgreen;
+        font-size: 40px;  
+    }  */
+    100%{
+        transform: translateX(100vw); /* sort hors d'écran à droite */
+    }
+}
+
+.nomEcole{
+    color: darkslategray;
+    font-size: large;
+    font-weight: bold;
+}
+.elementEntete{
+    background-color:#caae7e;
+    padding: 25px;
+    margin-inline: 0.5%;  /* marge simultanémnent à gauche et à droite */
+    border-radius: 10px;
+}
+.elementEntete > ul { /* le > signifie "ul directement dans .elementEntet",*/
+    list-style: none; /* Permet de supprimer les puces par défaut des ul */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 60px; /*Espace entre les éléments de la navbar */
+    text-decoration: none;
+    margin-left: 20px;
+}
+li a {
+    color:white;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+}
+.elementEntete > ul > li >a:hover{
+    color:rgb(232, 255, 196);
+    text-decoration: underline;
+}
+
+/*======Caher les sous-menus de l'en-tête et afficher au survol======*/
+.cacheMenu{
+    position: relative;
+}
+.listeClasses{
+    display: none;
+    position: absolute;
+    background-color: #caae7e;
+    list-style: none;
+    top: 100%; /* aligné en dessous du parent */
+    left: 0; /* listeClasses commencent au même niveau que classes */
+    min-width: 180%;
+}
+.cacheMenu:hover .listeClasses {
+    display: block;
+}
+.listeClasses li a {
+    font-size: 15px;
+    color:white;
+}
+
+
+/* Je définis un hover pour les sous-menus */
+.listeClasses:hover , .lesSousClasses:hover{
+    color: blueviolet;
+    background-color: #caae7e;
+}
+/* =====Je cache les secondes=========*/
+.cacheClasse{
+    position: relative;
+}
+.lesSousClasses {
+   /* display: none; */
+    /* je remplace display:none par les trois lignes suivantes */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.5s; /* 0.5s = délai avant apparition */
+    position: absolute;
+    background-color: #caae7e;
+    list-style: none;
+    top: 0; /* aligné en haut du parent*/
+    left: 100%; /* commencent là où le parent fini*/
+    min-width: 150px;
+    margin-left: -1px; /* colle lesSecondes au parent sans espace */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cacheClasse:hover .lesSousClasses{
+ /*   display: block;  */
+
+        /* je remplace display:block par ceci */
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease 0.5s;
+    text-decoration-color: rgb(223, 165, 176);
+}
+
+
+/*banière hero*/
+.hero{
+    background-image: url(assets/ecole-1038x519.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    color:white;
+}
+.bouton{
+    background-color: #c0392b;
+    border: 150px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.bouton:hover{
+    background-color:rgb(255, 0, 85) ;
+    transform: scale(1.10);
+    transition: 0.2s;
+} 
+.lesChiffres{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    color:coral;
+    background-color: #f0f0f0;
+}
+.chiffre{
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 48px;
+}
+.chiffre:hover{
+    transform: scale(1.15);
+    transition: 0.3s;
+    color: white;
+    background-color: rgb(196, 181, 181);
+    border-radius: 80px;
+}
+
+.actualites{
+    padding: 20px 20px;
+    background-color: rgb(240, 238, 238);
+}
+.cartes{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.carte{
+    width: 33%;
+    background-color: white;
+    border-radius: 10px;
+    border: 5px solid white;
+    overflow: hidden;
+}
+.carte img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.titre-section{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+.lesEnseignant{
+    text-decoration: none;
+    color:coral;
+}
+
+
+
+
+
+/*#######################################___RESPONSIVE___###############################################*/
+
+/* Effets hover sur le bouton En savoir plus */
+.bouton:hover {
+  background-color: #922b21;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* Effets hover sur les cartes actualités */
+.carte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* Zoom sur les images des cartes au survol */
+.carte:hover img {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* Menu hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+@media (max-width: 768px) {
+
+  * {
+    max-width: 100%;
+  }
+  body {
+    overflow-x: hidden;
+  }
+
+  /* En-tête */
+  .container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .conteneurImage img {
+    width: 100%;
+    height: 200px;
+  }
+  .conteneurImage h4 {
+    display: none; /* cache le texte qui défile sur mobile */
+  }
+
+  /* Hero */
+  .hero {
+    height: 200px;
+    padding-left: 20px;
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* Chiffres clés — 3 colonnes → 1 colonne */
+  .lesChiffres {
+    grid-template-columns: 1fr;
+    font-size: 10px;
+  }
+
+  /* Actualités — côte à côte → empilées */
+  .cartes {
+    flex-direction: column;
+  }
+  .carte {
+    width: 100%;
+  }
+
+  /* Grille enseignants — 4 colonnes → 2 colonnes */
+  .grille-equipe {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tableau filières — 3 colonnes → 1 colonne */
+  .tableau {
+    grid-template-columns: 1fr;
+  }
+
+  /* Menu hamburger */
+  .hamburger {
+    display: block;
+  }
+  .container > div:last-child {
+    width: 100%;   
+  }
+  .elementEntete {
+    display: none;
+    width: 100%;
+  }
+  .elementEntete.actif {
+    display: block;
+    background-color: #1a3c6e;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  .elementEntete.actif > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .elementEntete > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 15px;
+  }
+}
+
+/* Mobile strict — moins de 480px */
+@media (max-width: 480px) {
+
+  .grille-equipe {
+    grid-template-columns: 1fr;
+  }
+  .elementEntete > ul {
+    gap: 8px;
+  }
+  li a {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*
+@media (max-width: 768px) {
+
+  *{
+    max-width: 100%;
+  }
+  .conteneurImage img{
+    width: 100%;
+    height: 200px;
+  }
+ .container .conteneurImage{
+    margin-top: 20%;
+    font-size: small;
+    color: blue;
+  }  
+  body{
+    overflow-x: hidden;
+  }
+    (Le hero — texte plus petit )
+  .hero {
+    height: 200px;
+    padding-left: 20px;
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+
+  ( Chiffres clés — 3 colonnes → 1 colonne )
+  .lesChiffres {
+    grid-template-columns: 1fr;
+    font-size: 10px;
+  }
+
+  ( Actualités — côte à côte → empilées )
+  .cartes {
+    flex-direction: column;
+  }
+  .carte {
+    width: 100%;
+  }
+
+  ( Grille enseignants — 4 colonnes → 2 colonnes )
+  .grille-equipe {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  ( Tableau filières — 3 colonnes → 1 colonne )
+  .tableau {
+    grid-template-columns: 1fr;
+  }
+
+  ( Navigation — réduire le gap )
+  .elementEntete{
+    background-color: #c0392b;
+    min-width: 90%;
+    padding: 10px;
+  }
+  .elementEntete > ul {
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+( Mobile strict — moins de 480px )
+@media (max-width: 480px) {
+
+  ( Grille enseignants — 2 colonnes → 1 colonne )
+  .grille-equipe {
+    grid-template-columns: 1fr;
+  }
+
+  ( Navigation — encore plus petit )
+  .elementEntete > ul {
+    gap: 8px;
+  }
+  li a {
+    font-size: 12px;
+  }
+}
+
+
+
+( Effets hover sur le bouton En savoir plus )
+.bouton:hover {
+  background-color: #922b21;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+( Effets hover sur les cartes actualités )
+.carte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+( Zoom sur les images des cartes au survol )
+.carte:hover img {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+( Menu hamburger )
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center  }
+  .hamburger {
+    display: block;
+  }
+  .elementEntete {
+    display: none;
+    width: 100%;
+  }
+  .elementEntete.actif {
+    display: block;
+    background-color: #1a3c6e;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  .elementEntete.actif > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .elementEntete > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 15px;
+  }
+  .conteneurImage h4 {
+    display: none;  (pour cacher le texte qui défile sur téléphone)
+    }
+}
+
+*/

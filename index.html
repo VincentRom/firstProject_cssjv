@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>site vitrine CSSJV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="container">
+        <div class="nomEcole">
+            <div class="conteneurImage">
+                <img src="assets/1779537355182.png" alt="logo CSSJV">
+                <h4>Une histoire d'excellence et d'engagement</h4>
+            </div>
+        </div>
+
+        <div>
+           <button class="hamburger" id="hamburger">☰</button>
+           <nav class="elementEntete">
+                <ul>
+                   <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                   <li><a href="#">À propos</a></li>
+                   <li class="cacheMenu"><a href="classes.html" target="_blank">Classes 
+                   <i class="fa-solid fa-caret-down"></i></a>
+                       <ul class="listeClasses">
+                        <li><a href="#">Sixième</a></li>
+                        <li><a href="#">Cinquième</a></li>
+                        <li><a href="#">Quatrième</a></li>
+                        <li><a href="#">Troisième</a></li>
+                        <li class="cacheClasse"><a href="#">Seconde</a>
+                             <ul class="lesSousClasses">
+                                <li><a href="#">Seconde A1</a></li>
+                                <li><a href="#">Seconde A2</a></li>
+                                <li><a href="#">Seconde B</a></li>
+                                <li><a href="#">Seconde C</a></li>
+                                <li><a href="#">Seconde D</a></li>
+                             </ul>
+                        </li>
+                        <li class="cacheClasse"><a href="#">Première</a>
+                            <ul class="lesSousClasses">
+                                <li><a href="#">Première A1</a></li>
+                                <li><a href="#">Première A2</a></li>
+                                <li><a href="#">Première B</a></li>
+                                <li><a href="#">Première C</a></li>
+                                <li><a href="#">Première D</a></li>
+                            </ul>
+                        </li>
+                        <li class="cacheClasse"><a href="#">Terminale</a>
+                            <ul class="lesSousClasses">
+                                <li><a href="#">Terminale A1</a></li>
+                                <li><a href="#">Terminale A2</a></li>
+                                <li><a href="#">Terminale B</a></li>
+                                <li><a href="#">Terminale C</a></li>
+                                <li><a href="#">Terminale D</a></li>
+                            </ul>
+                        </li>
+                       </ul>
+                    </li>
+                   <li><a href="#">Administration
+                    <i class="fa-solid fa-caret-down"></i></a></li>
+                    <li><a href="enseignants.html" target="_blank">Nos enseignants</a></li>
+                   <li><a href="#">Contact</a></li>
+               </ul>
+           </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="heroConteu">
+            <h1>Bienvenue au CSSJV</h1>
+            <p><h2>L'excellence au service de votre enfant</h2></p>
+            <a href="#" class="bouton">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section>
+        <div class="lesChiffres">
+            <div class="chiffre">
+                <h2>5000+</h2>
+                <p><a href="classes.html" class="lesEnseignant" target="_blank">élèves formés</a></p>
+            </div>
+            <div class="chiffre">
+                <h2>50+</h2>
+                <p><a href="enseignants.html" class="lesEnseignant" target="_blank">Enseignants</a></p>
+            </div>            
+            <div class="chiffre">
+            <h2>15 ans</h2>
+                <p>D'expérience</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="actualites">
+        <h2 class="titre-section">Actualités</h2>
+        <div class="cartes">
+            <div class="carte">
+                <img src="assets/img2.png" alt="actualité 1">
+                <h3>Rentrée scolaire 2025</h3>
+                <p>La rentrée se déroulera le 15 septembre dans nos locaux rénovés.</p>
+            </div>
+            <div class="carte">
+                <img src="assets/IMG-20240622-WA0061.jpg" alt="actualité 2">
+                <h3>Résultats du BEPC</h3>
+                <p>100% de réussite au BEPC pour la 3ème année consécutive.</p>
+            </div>
+            <div class="carte">
+                <img src="assets/cantine.jpg" alt="actualité 3">
+                <h3>Nouvelle cantine</h3>
+                <p>Notre cantine rénovée accueille désormais 300 élèves par service.</p>
+            </div>
+        </div>
+    </section>
+    <script>
+        const bouton = document.getElementById('hamburger');
+        const menu = document.querySelector('.elementEntete');
+    
+        bouton.addEventListener('click', function() {
+        menu.classList.toggle('actif');
+        });
+    </script>
+</body>
+</html>
+
