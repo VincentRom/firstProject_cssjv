@@ -172,9 +172,11 @@ li a {
     border-radius: 10px;
 }
 
+.hamburger{
+    display: none;
+}
 
-
-/*   RESPONSIVE    */
+/*  ######################################## RESPONSIVE ##################################   */
 
 @media (max-width: 768px) {
   .container {
