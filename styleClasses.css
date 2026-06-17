@@ -179,6 +179,34 @@ li a {
     display: none; /* pour cacher le menu hamurger sur ordinateur */
 }
 
+/*#################################  LE FOOTER  #####################################*/
+footer{
+  display: flex;
+  background-color: #1a3c6e;
+  color: #FFFFFF;
+  justify-content: space-around;
+  border-radius: 10px;
+  margin: 10px;
+}
+.downInfo{
+  text-decoration: none;
+} 
+.downInfo ul, span{
+  list-style-type: none;
+}  
+.downInfo a{
+  text-decoration: none;
+  color: inherit;
+}
+.downInfo h3{
+  color: #F97316;
+}
+footer .downInfo a:hover{
+  text-decoration: underline;
+  color: #f7f306;
+}
+
+
 /*################################ RESPONSIVE ############################# */
 @media (max-width: 768px) {
   .container {

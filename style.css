@@ -5,7 +5,7 @@
 }
 .container {
     display: block;
-    background-color:#D9D0C1;
+    background-color:#f5f5f5;
     padding: 8px;
 }
 /* Ci-dessous, texte sur image*/
@@ -60,7 +60,7 @@
     font-weight: bold;
 }
 .elementEntete{
-    background-color:#caae7e;
+    background-color:#1a3c6e;
     padding: 25px;
     margin-inline: 0.5%;  /* marge simultanémnent à gauche et à droite */
     border-radius: 10px;
@@ -168,7 +168,7 @@ li a {
     font-weight: bolder;
 }
 .bouton:hover{
-    background-color:rgb(255, 0, 85) ;
+    background-color:#922b21  ;
     transform: scale(1.10);
     transition: 0.2s;
 } 
@@ -176,7 +176,7 @@ li a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5px;
-    color:coral;
+    color:#1a3c6e;
     background-color: #f0f0f0;
 }
 .chiffre{
@@ -184,6 +184,9 @@ li a {
     text-align: center;
     padding: 10px;
     font-size: 48px;
+}
+.chiffre p a{
+  color: #1a3c6e;
 }
 .chiffre:hover{
     transform: scale(1.15);
@@ -221,12 +224,84 @@ li a {
 }
 .lesEnseignant{
     text-decoration: none;
-    color:coral;
+    color:#c0392b;
+}
+
+.Director{
+  display: flex;
+  background-color:rgb(248, 246, 246) ;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin: 40px auto;
+}
+.rightImage{
+  width: 400px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin-left: auto;
+} 
+.rightImage:hover{
+  transform: scale(1.05);
+  transition: 0.8s;
+}
+.DirWord{
+  font-size: 104%;
+  margin-right: 0%;
+}
+.phraseCool{
+  display: block;
+  font-size: 25px;
+  font-weight: bolder;
+}
+.traitHoriz{
+  display: flex;
+  margin-left: 2%;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  border: none;
+  height: 6px;
+  width: 20%;
+  background-color:#c0392b ;
+  color:#c0392b;
+}
+.nomDir{
+  font-weight: bolder;
 }
 
 
+.hero, section, .Director, footer {
+  margin-bottom: 30px;
+}
 
-
+/*#################################  LE FOOTER  #####################################*/
+footer{
+  display: flex;
+  background-color: #1a3c6e;
+  color: #FFFFFF;
+  justify-content: space-around;
+  border-radius: 10px;
+  margin: 10px;
+}
+.downInfo{
+  text-decoration: none;
+} 
+.downInfo ul, span{
+  list-style-type: none;
+}  
+.downInfo a{
+  text-decoration: none;
+  color: inherit;
+}
+.downInfo h3{
+  color: #F97316;
+}
+footer .downInfo a:hover{
+  text-decoration: underline;
+  color: #f7f306;
+}
 
 /*#######################################___RESPONSIVE___###############################################*/
 
@@ -354,6 +429,22 @@ li a {
     gap: 10px;
     padding: 5px 0;
     font-size: 15px;
+  }
+  footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .Director{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+  }
+  .rightImage{
+    width: 100%;
+    margin-top: 20px;
   }
 }
 
