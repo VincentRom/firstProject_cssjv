@@ -1,0 +1,142 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_connecte']) || $_SESSION['admin_connecte'] !== true) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Recrutement des Enseignants</title>
+    <link rel="stylesheet" href="styleTeachers.css">
+    <link rel="stylesheet" href="recrutement.css">
+</head>
+<body>
+     <header class="container">
+        <div class="nomEcole">
+            <div class="conteneurImage">
+                <img src="assets/1779537355182.png" alt="logo CSSJV">
+                <h4>Une histoire d'excellence et d'engagement</h4>
+            </div>
+        </div>
+
+        <div>            
+           <button class="hamburger" id="hamburger">☰</button>
+           <nav class="elementEntete">
+                <ul>
+                   <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                   <li><a href="#">À propos</a></li>
+                   <li class="cacheMenu"><a href="classes.html">Classes <i class="fa-solid fa-caret-down"></i></a></li>
+                   <li><a href="#">Administration <i class="fa-solid fa-caret-down"></i></a></li>
+                   <li><a href="enseignants.html">Nos enseignants</a></li>
+                   <li><a href="#">Contact</a></li>
+                </ul>
+           </nav>
+        </div>
+    </header>
+
+    <main class="page-equipe">
+        <h2 class="titre-page">Espace Direction : Recrutement du Personnel</h2>
+        
+        <!-- Section du Formulaire de Recrutement -->
+        <section class="containerForm">
+            <form action="ajouterEnseignant.php" method="POST">
+                
+                <div class="Positionchamp">
+                    <label for="nom" class="FormChamp">Nom de famille :</label>
+                    <input type="text" id="nom" name="nom" required placeholder="Ex: HOUNKPOEGBE"
+                           pattern="[A-Za-zÀ-ÿ\s\-]+"
+                           title="Lettres uniquement (accents, espaces et tirets autorisés)"
+                           >
+                </div>
+
+                <div class="Positionchamp">
+                    <label for="prenoms" class="FormChamp">Prénom(s) :</label>
+                    <input type="text" id="prenoms" name="prenoms" required placeholder="Ex: Vincent"
+                           pattern="[A-Za-zÀ-ÿ\s\-]+"
+                           title="Lettres uniquement (accents, espaces et tirets autorisés)">
+                </div>
+
+                <div class="Positionchamp">
+                    <label for="matiere" class="FormChamp">Matière enseignée :</label>
+                    <input type="text" id="matiere" name="matiere" required placeholder="Ex: Mathématiques" >
+                </div>
+
+                <div class="Positionchamp">
+                    <label for="telephone" class="FormChamp">Numéro de téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone" required placeholder="Ex: +229 01XXXXXXXX"
+                           pattern="[\d\s\+\-]{10,}"
+                           title="Au moins 10 chiffres">
+                </div>
+
+                <div class="Positionchamp">
+                    <label for="email" class="FormChamp">Votre Email :</label>
+                    <input type="email" id="email" name="email" required placeholder="Ex: h20cent@gmail.com">
+                </div>
+
+                <div class="Positionchamp">
+                    <label for="naissanceDate" class="FormChamp">Date de naissance :</label>
+                    <input type="date" id="naissanceDate" name="naissanceDate" required >
+                </div>
+
+                <div class="Positionchamp">
+                    <label for="matriculeNum" class="FormChamp">Numéro Matricule :</label>
+                    <input type="text" id="matriculeNum" name="matriculeNum" required placeholder="Ex: MAT-2026-XYZ">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label for="diplome_haut" class="FormChamp">Diplôme le plus élevé :</label>
+                    <input type="text" id="diplome_haut" name="diplome_haut" required placeholder="Ex: Licence, Master, BAPES...">
+                </div>
+
+                <button type="submit" class="enregForm">
+                    <i class="fa-solid fa-user-plus"></i> Enregistrer et recruter l'enseignant
+                </button>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="downInfo">
+            <h3>Nos spécialités</h3>
+            <ul>
+                <li><a href="#">Musique</a></li>
+                <li><a href="#">Informatique</a></li>
+                <li><a href="#">Loi d'attraction</a></li>
+                <li><a href="#">Karaté</a></li>
+            </ul>
+        </div>
+        <div class="downInfo">
+            <h3>Nos distinctions</h3>
+            <ul>
+                <li><a href="#">Trophée MESP21</a></li>
+                <li><a href="#">Trophée SIWOG</a></li>
+                <li><a href="#">Gratitude présidentielle</a></li>
+                <li><a href="#">Lire plus</a></li>
+            </ul>
+        </div>
+        <div class="downInfo">
+            <h3>Nos réseaux sociaux</h3>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i><span>Facebook</span></a> <br>
+                <a href="#"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a> <br>
+                <a href="#"><i class="fa-brands fa-youtube"></i><span>Youtube</span></a><br>
+                <a href="#"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+        </div>
+    </footer>
+
+    <script>
+        const bouton = document.getElementById('hamburger');
+        const menu = document.querySelector('.elementEntete');
+        bouton.addEventListener('click', function() {
+            menu.classList.toggle('actif');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleClasses.css">
+</head>
+<body>
+ <header class="container">
+        <div class="nomEcole">
+            <div class="conteneurImage">
+                <img src="assets/1779537355182.png" alt="logo CSSJV">
+                <h4>Une histoire d'excellence et d'engagement</h4>
+            </div>
+        </div>
+
+        <div>
+           <button class="hamburger" id="hamburger">☰</button>
+           <nav class="elementEntete">
+                <ul>
+                   <li><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                   <li><a href="#">À propos</a></li>
+                   <li class="cacheMenu"><a href="classes.html" target="_blank">Classes 
+                   <i class="fa-solid fa-caret-down"></i></a></li>
+                   <li><a href="#">Administration
+                    <i class="fa-solid fa-caret-down"></i></a></li>
+                   <li><a href="enseignants.php" target="_blank">Nos enseignants</a></li>
+                   <li><a href="#">Contact</a></li>
+               </ul>
+           </nav>
+        </div>
+    </header>
+    <main class="page-filieres">
+
+    <div class="tableau">
+  <div class="entete">Niveau</div>
+  <div class="entete">Filière</div>
+  <div class="entete">Effectif</div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Sixième</div>
+    <div class="cellule" data-label="Filière">Unique</div>
+    <div class="cellule" data-label="Effectif">60 élèves</div>
+  </div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Cinquième</div>
+    <div class="cellule" data-label="Filière">Unique</div>
+    <div class="cellule" data-label="Effectif">55 élèves</div>
+  </div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Quatrième</div>
+    <div class="cellule" data-label="Filière">Unique</div>
+    <div class="cellule" data-label="Effectif">50 élèves</div>
+  </div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Troisième</div>
+    <div class="cellule" data-label="Filière">Unique</div>
+    <div class="cellule" data-label="Effectif">48 élèves</div>
+  </div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Seconde</div>
+    <div class="cellule" data-label="Filière">A / C / D</div>
+    <div class="cellule" data-label="Effectif">90 élèves</div>
+  </div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Première</div>
+    <div class="cellule" data-label="Filière">A / C / D</div>
+    <div class="cellule" data-label="Effectif">85 élèves</div>
+  </div>
+
+  <div class="ligne">
+    <div class="cellule" data-label="Niveau">Terminale</div>
+    <div class="cellule" data-label="Filière">A / C / D</div>
+    <div class="cellule" data-label="Effectif">80 élèves</div>
+  </div>
+</div>
+  </main>
+      <footer>
+        <div class="downInfo">
+            <h3>Nos spécialités</h3>
+            <ul>
+                <li><a href="#">Musique</a></li>
+                <li><a href="#">Informatique</a></li>
+                <li><a href="#">Loi d'attraction</a></li>
+                <li><a href="#">Karaté</a></li>
+            </ul>
+        </div>
+        <div class="downInfo">
+            <h3>Nos distinctions</h3>
+            <ul>
+                <li><a href="#">Trophée MESP21</a></li>
+                <li><a href="#">Trophée SIWOG</a></li>
+                <li><a href="#">Gratitude présidentielle</a></li>
+                <li><a href="#">Lire plus</a></li>
+            </ul>
+        </div>
+        <div class="downInfo">
+            <h3>Nos réseaux sociaux</h3>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i><span>Facebook</span></a> <br>
+                <a href="#"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a> <br>
+                <a href="#"><i class="fa-brands fa-youtube"></i><span>Youtube</span></a><br>
+                <a href="#"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+
+        </div>
+    </footer>
+  <script>
+  const bouton = document.getElementById('hamburger');
+  const menu = document.querySelector('.elementEntete');
+  
+  bouton.addEventListener('click', function() {
+    menu.classList.toggle('actif');
+  });
+</script>
+</body>
+</html>

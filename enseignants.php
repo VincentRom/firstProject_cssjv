@@ -1,7 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 // 1. Connexion à la base de données
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=cssjv_db;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=sql102.infinityfree.com;dbname=if0_42206483_cssjv_db;charset=utf8', 'if0_42206483', 'hzgg01zpMdpGkG');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
@@ -56,7 +58,7 @@ $reponse = $bdd->query('SELECT nom, prenoms, matiere, telephone, email, matricul
                     </div>
                     
                     <h3>
-                        M. <?php echo htmlspecialchars($donnees['nom']) . ' ' . htmlspecialchars($donnees['prenoms']); ?>
+                        Prof. <?php echo htmlspecialchars($donnees['nom']) . ' ' . htmlspecialchars($donnees['prenoms']); ?>
                     </h3>
                     
                     <hr> <!-- sépare visuellement nom et prénom des autres infos -->

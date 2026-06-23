@@ -1,0 +1,282 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: block;
+    background-color:#D9D0C1;
+    padding: 8px;
+}
+/* Ci-dessous, texte sur image*/
+.conteneurImage{
+    position: relative;
+    display: block;/*texte s'adapte à la taille de l'image*/
+    text-align: center;
+}
+.conteneurImage img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    object-fit: cover; /*permet à l'image de remplir tout le conteneur sans la déformer */
+}
+.conteneurImage h4 {
+    position: absolute;
+    bottom: 200px; /*distance du bas*/
+    left: 0; /* Le texte part de la gauche */
+    transform: translateX(-50%); /*centré horizontalement*/
+    color:rgb(175, 175, 10);
+    font-size: 50px;  
+    white-space: nowrap;
+    animation: defiler 20s linear infinite;
+}
+
+@keyframes defiler{  /* ici defiler est le nom de mon animation, je choisis ce que je veux */
+    0%{
+        transform: translateX(-100%); /* commence hors d'écran à gauche */
+        color: red;
+    }
+ /*   25%{
+        color: blue;
+        font-size: 20px;
+    }
+    50%{
+        color: tomato;
+        font-size: 80px;
+    }
+    75%{
+        color: springgreen;
+        font-size: 40px;  
+    }  */
+    100%{
+        transform: translateX(100vw); /* sort hors d'écran à droite */
+    }
+}
+
+.nomEcole{
+    color: darkslategray;
+    font-size: large;
+    font-weight: bold;
+}
+.elementEntete{
+    background-color:#caae7e;
+    padding: 25px;
+    margin-inline: 0.5%;  /* marge simultanémnent à gauche et à droite */
+    border-radius: 10px;
+}
+.elementEntete > ul { /* le > signifie "ul directement dans .elementEntet",*/
+    list-style: none; /* Permet de supprimer les puces par défaut des ul */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 60px; /*Espace entre les éléments de la navbar */
+    text-decoration: none;
+    margin-left: 20px;
+}
+li a {
+    color:white;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+}
+.elementEntete > ul > li >a:hover{
+    color:rgb(232, 255, 196);
+    text-decoration: underline;
+}
+
+/*======Caher les sous-menus de l'en-tête et afficher au survol======*/
+.cacheMenu{
+    position: relative;
+}
+.listeClasses{
+    display: none;
+    position: absolute;
+    background-color: #caae7e;
+    list-style: none;
+    top: 100%; /* aligné en dessous du parent */
+    left: 0; /* listeClasses commencent au même niveau que classes */
+    min-width: 180%;
+}
+.cacheMenu:hover .listeClasses {
+    display: block;
+}
+.listeClasses li a {
+    font-size: 15px;
+    color:white;
+}
+
+
+/* Je définis un hover pour les sous-menus */
+.listeClasses:hover , .lesSousClasses:hover{
+    color: blueviolet;
+    background-color: #caae7e;
+}
+/* =====Je cache les secondes=========*/
+.cacheClasse{
+    position: relative;
+}
+.lesSousClasses {
+   /* display: none; */
+    /* je remplace display:none par les trois lignes suivantes */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.5s; /* 0.5s = délai avant apparition */
+    position: absolute;
+    background-color: #caae7e;
+    list-style: none;
+    top: 0; /* aligné en haut du parent*/
+    left: 100%; /* commencent là où le parent fini*/
+    min-width: 150px;
+    margin-left: -1px; /* colle lesSecondes au parent sans espace */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cacheClasse:hover .lesSousClasses{
+ /*   display: block;  */
+
+        /* je remplace display:block par ceci */
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease 0.5s;
+    text-decoration-color: rgb(223, 165, 176);
+}
+
+
+
+.tableau{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+.ligne {
+  display: contents; /* rend le <div class="ligne"> "invisible" pour la grille afin que rien ne change sur ordinateur*/
+}
+.entete{
+    background-color: #1a3c6e;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    font-size: large;
+}
+.cellule{
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+}
+.ligne:nth-child(odd) .cellule{
+    background-color: #f5f5f5;
+}
+.ligne:nth-child(even) .cellule{
+    background-color: #ffffff;
+}
+.titre-page{
+    margin-left: 40%;
+    margin-right: 40%;
+}
+.hamburger{
+    display: none; /* pour cacher le menu hamurger sur ordinateur */
+}
+
+/*#################################  LE FOOTER  #####################################*/
+footer{
+  display: flex;
+  background-color: #1a3c6e;
+  color: #FFFFFF;
+  justify-content: space-around;
+  border-radius: 10px;
+  margin: 10px;
+}
+.downInfo{
+  text-decoration: none;
+} 
+.downInfo ul, span{
+  list-style-type: none;
+}  
+.downInfo a{
+  text-decoration: none;
+  color: inherit;
+}
+.downInfo h3{
+  color: #F97316;
+}
+footer .downInfo a:hover{
+  text-decoration: underline;
+  color: #f7f306;
+}
+
+
+/*################################ RESPONSIVE ############################# */
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.container > div:last-child {
+    width: 100%;   
+  }
+  .hamburger {
+    display: block;
+  }
+  .elementEntete {
+    display: none;
+    width: 100%;
+  }
+  .elementEntete.actif {
+    display: block;
+    background-color: #1a3c6e;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  .elementEntete.actif > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .conteneurImage h4{
+    display: none;
+  }
+
+.tableau {
+  grid-template-columns: 1fr;
+}
+
+.entete {
+  display: none;
+}
+
+.ligne {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.ligne .cellule {
+  background-color: transparent;
+  border: none;
+  padding: 4px 0;
+}
+
+.ligne .cellule::before {
+  content: attr(data-label) " : ";
+  font-weight: bold;
+  color: #1a3c6e;
+}
+  .entete {
+    padding: 8px;
+  }
+  .cellule {
+    padding: 8px;
+  }
+}

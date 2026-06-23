@@ -1,7 +1,14 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_connecte']) || $_SESSION['admin_connecte'] !== true) {
+    header('Location: login.php');
+    exit();
+}
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 // 1. Connexion à la base de données
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=cssjv_db;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=sql102.infinityfree.com;dbname=if0_42206483_cssjv_db;charset=utf8', 'if0_42206483', 'hzgg01zpMdpGkG');
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
@@ -18,13 +25,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $matriculeNum = htmlspecialchars($_POST['matriculeNum']);
     $diplome_haut = htmlspecialchars($_POST['diplome_haut']);
     
+        // Validation nom et prénoms : lettres, accents, espaces, tirets uniquement
+if (!preg_match('/^[A-Za-zÀ-ÿ\s\-]+$/', $nom)) {
+    die("Erreur : Le nom ne doit contenir que des lettres.");
+}
+if (!preg_match('/^[A-Za-zÀ-ÿ\s\-]+$/', $prenoms)) {
+    die("Erreur : Les prénoms ne doivent contenir que des lettres.");
+}
+
+// Validation téléphone : extraire les chiffres et vérifier qu'il y en a au moins 10
+$chiffres_telephone = preg_replace('/\D/', '', $telephone);
+if (strlen($chiffres_telephone) < 10) {
+    die("Erreur : Le numéro de téléphone doit contenir au moins 10 chiffres.");
+}
+
     // Génération du mot de passe temporaire (égal au matricule) et hachage
     $mot_de_passe_hache = password_hash($matriculeNum, PASSWORD_DEFAULT);
 
     // 3. LA REQUÊTE SQL D'INSERTION (Requête préparée pour la sécurité)
     $req = $bdd->prepare('INSERT INTO enseignants (nom, prenoms, matiere, telephone, email, naissanceDate, matriculeNum, diplome_haut, motDePasse) 
                           VALUES (:nom, :prenoms, :matiere, :telephone, :email, :naissanceDate, :matriculeNum, :diplome_haut,:motDePasse)');
-    
+
+
     // Execution de la requête SQL
     $req->execute(array(
         'nom' => $nom,
